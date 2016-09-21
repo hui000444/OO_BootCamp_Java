@@ -1,0 +1,12 @@
+Given Parking Manager manager 1 parking lot
+    when park a car
+    then parked successfulled and parking lot can pick up same car
+
+Given Parking Manager manager 1 parking boy and boy have 1 parking lot
+    when ask boy to park a car
+    then parked successfulled and boy can pick up same car
+
+
+Given Parking Manager manager 2 parking boy and boy both have 1 parking lot
+    when ask one boy to park a car
+    then parked successfulled and boy can pick up same car
