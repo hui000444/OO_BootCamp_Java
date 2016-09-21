@@ -11,17 +11,6 @@ public class SmartParkingBoy extends ParkingBoyBase {
         super(parkingLots);
     }
 
-
-    @Override
-    protected Comparator<ParkingLot> getComparator() {
-        return new Comparator<ParkingLot>() {
-            public int compare(ParkingLot o1, ParkingLot o2) {
-                return o1.getCapacity() - o2.getCapacity() > 0 ? -1 : 1;
-            }
-        };
-
-    }
-
     protected ParkingLot getParkingLot() {
         return parkingLots.stream()
                 .max((lot1, lot2) -> (lot1.getCapacity() - lot2.getCapacity() > 0 ? 1 : -1))

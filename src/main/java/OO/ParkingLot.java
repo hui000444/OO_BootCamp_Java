@@ -22,9 +22,6 @@ public class ParkingLot {
         return car;
     }
 
-    protected boolean canPark() {
-        return capacity > carList.size();
-    }
 
     public Car pickUp(Car token) throws NotFoundCarException {
         for (Car car : carList) {
@@ -44,7 +41,12 @@ public class ParkingLot {
         return (capacity - carList.size()) / capacity;
     }
 
-    public boolean canPickUp(Car token) {
+
+    protected boolean canPark() {
+        return capacity > carList.size();
+    }
+
+    protected boolean canPickUp(Car token) {
         return carList.stream().anyMatch(car -> car==token);
     }
 }

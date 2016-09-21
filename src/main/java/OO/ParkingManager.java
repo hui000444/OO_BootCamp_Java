@@ -37,15 +37,11 @@ public class ParkingManager extends ParkingBoyBase {
         throw new NotFoundCarException();
     }
 
-    @Override
-    protected Comparator<ParkingLot> getComparator() {
-        return null;
-    }
-
     public void setParkingBoys(ParkingBoyBase[] parkingBoys) {
         this.parkingBoys = Arrays.asList(parkingBoys == null ? new ParkingBoyBase[]{} : parkingBoys);
     }
 
+    @Override
     protected ParkingLot getParkingLot() {
         return parkingLots.stream().filter(parkingLot -> parkingLot.canPark()).findFirst().get();
     }

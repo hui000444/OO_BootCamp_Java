@@ -25,12 +25,6 @@ public abstract class ParkingBoyBase {
         throw new NotFoundCarException();
     }
 
-    protected boolean canPark() {
-        return parkingLots != null
-                && parkingLots.size() > 0
-                && parkingLots.stream().anyMatch(lot -> lot.canPark());
-    }
-
     public Car park(Car car) throws NoAvailableSpaceException {
         if(parkingLots.stream().anyMatch(parkingLot -> parkingLot.canPark())){
             return getParkingLot().park(car);
@@ -40,7 +34,12 @@ public abstract class ParkingBoyBase {
 
     protected abstract ParkingLot getParkingLot();
 
-    protected abstract Comparator<ParkingLot> getComparator();
+
+    protected boolean canPark() {
+        return parkingLots != null
+                && parkingLots.size() > 0
+                && parkingLots.stream().anyMatch(lot -> lot.canPark());
+    }
 
     public boolean canPickUp(Car token) {
         return parkingLots != null
