@@ -15,6 +15,10 @@ public class ParkingLot {
         carList = new ArrayList<Car>();
     }
 
+    protected int getLotsCount(){
+        return this.capacity;
+    }
+
     public Car park(Car car) throws NoAvailableSpaceException {
         if (!canPark())
             throw new NoAvailableSpaceException();
@@ -48,5 +52,9 @@ public class ParkingLot {
 
     protected boolean canPickUp(Car token) {
         return carList.stream().anyMatch(car -> car==token);
+    }
+
+    public int getCarCount() {
+        return this.carList.size();
     }
 }

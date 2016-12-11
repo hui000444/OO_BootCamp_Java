@@ -10,3 +10,15 @@ Given Parking Manager manager 1 parking boy and boy have 1 parking lot
 Given Parking Manager manager 2 parking boy and boy both have 1 parking lot
     when ask one boy to park a car
     then parked successfulled and boy can pick up same car
+
+
+
+
+Given a Parking Director and one parking manager have 1 parking lot
+    when report the parking lots
+    then response the M 0 1
+
+
+Given a Parking Director and one parking manager have 1 parking lot and parked one car
+    when report the parking lots
+    then response the M 1 1

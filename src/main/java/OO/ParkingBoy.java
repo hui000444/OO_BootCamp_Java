@@ -11,7 +11,7 @@ public class ParkingBoy extends ParkingBoyBase {
         super(parkingLots);
     }
 
-    @Override
+
     protected ParkingLot getParkingLot() {
         return parkingLots.stream().filter(parkingLot -> parkingLot.canPark()).findFirst().get();
     }
